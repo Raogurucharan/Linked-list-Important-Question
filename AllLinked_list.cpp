@@ -198,3 +198,36 @@ curr = next
     }
 =================================================================	
 
+8) DELETE  I th NODE FROM LINKED LIST
+```````````````````````````````````
+Time Complexity : O(min(I, N))
+Space Complexity : O(1)
+where I is the position of the node to be
+deleted and N is the size of singly linked list
+
+Node *deleteNode(Node *head, int pos)
+{
+if(head == NULL)
+{
+return head;
+}
+if(pos == 0)
+{
+return head->next;
+}
+Node* curr = head;
+int currPos = 0;
+while(curr != NULL && currPos < pos - 1)
+{
+++currPos;
+curr = curr->next;
+}
+if(curr == NULL || curr->next == NULL)
+{
+return head;
+}
+curr->next = curr->next->next;
+return head;
+}
+
+=================================================================
