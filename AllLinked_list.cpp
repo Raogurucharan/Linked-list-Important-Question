@@ -231,3 +231,30 @@ return head;
 }
 
 =================================================================
+
+9) DELETE A NODE FROM LINKED LIST [ USING RECURSION ]
+``````````````````````````````````````````````````````
+
+Time Complexity : O(n)
+Space Complexity : O(n)
+where n is the size of singly linked list
+
+Node *deleteNodeRec(Node *head, int pos)
+{
+if (head == NULL)
+{
+return head;
+}
+if (pos == 0)
+{
+Node *temp = head;
+head = head->next;
+delete temp;
+return head;
+}
+Node *smallHead = deleteNodeRec(head->next, pos - 1);
+head->next = smallHead;
+return head;
+}
+
+=================================================================
