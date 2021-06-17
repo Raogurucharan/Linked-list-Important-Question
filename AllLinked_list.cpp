@@ -278,3 +278,29 @@ currentNode = currentNode->next;
 }
 ======================================================================
 
+11) INSERT IN LINKEDLIST
+````````````````````````````
+
+Time complexity: O(N)
+Space complexity: O(N)
+where N is the length of the singly linked list
+
+Node *insertNode(Node *head, int pos, int data) {
+if (head == NULL) {
+if (pos == 0) {
+Node *newnode = new Node(data);
+return newnode;
+}
+return head;
+}
+Node *newnode = new Node(data);
+if (pos == 0) {
+newnode->next = head;
+head = newnode;
+return head;
+}
+head->next = insertNode(head->next, pos - 1, data);
+return head;
+}
+
+====================================================================
