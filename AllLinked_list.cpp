@@ -258,3 +258,23 @@ return head;
 }
 
 =================================================================
+
+10) DELETE ALTERNATE NODE IN LINKED LIST
+`````````````````````````````````````````
+Time complexity: O(N)
+Space complexity: O(1)
+
+void deleteAlternateNodes(Node *head)
+{
+Node *currentNode = head;
+while (currentNode != NULL && currentNode->next != NULL)
+{
+Node *temp = currentNode->next;
+currentNode->next = currentNode->next->next;
+temp->next = NULL;
+delete temp;
+currentNode = currentNode->next;
+}
+}
+======================================================================
+
