@@ -1,8 +1,6 @@
 /*
- BY GURUCHARAN RAO
-
-      
-                                     IMPORTANT LINKED LIST PROBLEMS
+  
+                                     IMPORTANT LINKED-LIST PROBLEMS
                            --------------------------------------------------------
 
 */
@@ -326,7 +324,7 @@ bool isPalin(Node* head){
 return true;
 }
 
-````````````````````````OR`````````````````````````````````
+````````````````````````OR``````````````````````````````````
 /*
 Given a singly linked list, determine if its a palindrome. Return 1 or 0 denoting if its a palindrome or not, respectively.
 
