@@ -391,3 +391,69 @@ int Solution::lPalin(ListNode* A) {
     return 1;
 }
 ========================================================
+
+
+13) EVEN AFTER ODD LINKED LIST
+```````````````````````````````
+
+/*
+Sample Input 1 :
+1
+1 4 5 2 
+Sample Output 1 :
+1 5 4 2 
+
+Time Complexity : O(n)
+Space Complexity : O(1)
+where n is the size of singly linked list
+*/
+
+Node *evenAfterOdd(Node *head)
+{
+if (head == NULL)
+{
+return head;
+}
+Node *evenHead = NULL, *oddHead = NULL, *evenTail = NULL, *oddTail = NULL;
+while (head != NULL)
+{
+if (head->data % 2 == 0)
+{
+if (evenHead == NULL)
+{
+evenHead = head;
+evenTail = head;
+}
+else
+{
+evenTail->next = head;
+evenTail = evenTail->next;
+}
+}
+else
+{
+if (oddHead == NULL)
+{
+oddHead = head;
+oddTail = head;
+}
+else
+{
+oddTail->next = head;
+oddTail = oddTail->next;
+}
+}
+head = head->next;
+}
+if (oddHead == NULL)
+{
+return evenHead;
+}
+else
+{
+oddTail->next = evenHead;
+}
+if (evenHead != NULL)
+{
+evenTail->next = NULL;
+}
