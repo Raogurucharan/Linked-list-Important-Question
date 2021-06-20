@@ -457,3 +457,43 @@ if (evenHead != NULL)
 {
 evenTail->next = NULL;
 }
+
+=======================================================================
+14) K REVERSE A LNKED LIST IN GROUPS OF K
+```````````````````````````````````````````
+/*
+Time Complexity : O(n)
+Space Complexity : O(n)
+where n is the size of singly linked list
+Given this linked list: 1 -> 2 -> 3 -> 4 -> 5
+For k = 2, you should return: 2 -> 1 -> 4 -> 3 -> 5
+For k = 3, you should return: 3 -> 2 -> 1 -> 4 -> 5
+*/
+
+Node *kReverse(Node *head, int k)
+{
+if (k == 0 || k == 1)
+{
+return head;
+}
+Node* current = head;
+Node* fwd = NULL;
+Node* prev = NULL;
+int count = 0;
+/* Reverse first k nodes of linked list */
+while (count < k && current != NULL)
+{
+fwd = current->next;
+current->next = prev;
+prev = current;
+current = fwd;
+count++;
+}
+if (fwd != NULL)
+{
+head->next = kReverse(fwd, k);
+}
+return prev;
+}
+
+===============================================================================
