@@ -497,3 +497,40 @@ return prev;
 }
 
 ===============================================================================
+	
+15) SWAP TWO NODES IN LINKED LIST or ALTERNATE NODES
+````````````````````````````````````````````````````
+/*
+Input: head = [1,2,3,4]
+Output: [2,1,4,3]
+*/
+class Solution {
+public:
+    ListNode* swapPairs(ListNode* head) {
+        ListNode* temp=head;
+        while((temp!=NULL)&&(temp->next!=NULL))
+        {
+            swap(temp->val,temp->next->val);
+            temp=temp->next->next;
+        }
+        return head;
+    }
+};
+
+~~~~~~~~~~~~~~~OR~~~~~~~~~~~~~~~
+
+class Solution {
+public:
+    ListNode* swapPairs(ListNode* head) {
+        ListNode *t1,*t2;
+        
+        if( head == NULL || head->next == NULL)
+            return head;
+        
+        t1 = head;
+        t2 = head->next;
+        t1->next = swapPairs(t2->next);
+        t2->next = t1;
+        return t2;
+    }
+};
