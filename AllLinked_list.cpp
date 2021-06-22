@@ -534,3 +534,32 @@ public:
         return t2;
     }
 };
+
+=================================================================
+16) Linked List Cycle 
+```````````````````````
+/*head = [3,2,0,-4], pos = 1
+Output: true
+Explanation: There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed).
+*/
+
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        if (!head) 
+            return false;
+        
+        ListNode *slow = head, *fast = head;
+        
+        while (fast->next && fast->next->next) {
+            slow = slow->next;
+            fast = fast->next->next;
+            if (slow == fast) 
+                return true;
+        }   
+        return false;
+    }
+};
+// Floyd cycle algorithm and complexity is at constant time  O(1)
+
+=======================================================================
