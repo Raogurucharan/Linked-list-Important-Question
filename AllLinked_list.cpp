@@ -563,3 +563,19 @@ public:
 // Floyd cycle algorithm and complexity is at constant time  O(1)
 
 =======================================================================
+	
+
+17) Convert Binary Linkedlist to Decimal
+```````````````````````````````````````````
+int decimalValue(Node *head)
+{
+    int dec = 0;
+    while (head != NULL)
+    {
+        dec = (dec << 1) + head->data;
+        head = head->next;
+    }
+    return dec;
+}
+
+====================================================================
