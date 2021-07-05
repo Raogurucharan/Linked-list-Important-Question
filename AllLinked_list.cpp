@@ -579,3 +579,31 @@ int decimalValue(Node *head)
 }
 
 ====================================================================
+
+	
+18) Remove Duplicates from linked list
+`````````````````````````````````````````
+void removeDuplicates(Node* head)
+{
+    Node* previous = nullptr;
+    Node* current = head;
+ 
+    // take an empty set to store linked list nodes for future reference
+    unordered_set<int> set;
+ 
+    // do till the linked list is empty
+    while (current != nullptr)
+    {
+        // if the current node is seen before, ignore it
+        if (set.find(current->data) != set.end()) {
+            previous->next = current->next;
+        }
+        else {
+            // insert the current node into the set and proceed to the next node
+            set.insert(current->data);
+            previous = current;
+        }
+        current = previous->next;
+    }
+}
+===========================================================================
