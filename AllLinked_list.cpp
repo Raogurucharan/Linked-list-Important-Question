@@ -168,7 +168,7 @@ Iterate through the linked list. In loop, do following.
 // store next node 
 next = curr->next
 // Now change next of current 
-// This is where actual reversing happens 
+This is where actual reversing happens 
 curr->next = prev 
 // Move prev and curr one step forward 
 prev = curr 
